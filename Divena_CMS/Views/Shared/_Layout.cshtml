@@ -1,0 +1,33 @@
+﻿ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title - CMS</title>
+    @*<link href="~/css/bundlecss.min.css" rel="stylesheet" />*@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            @await Component.InvokeAsync(nameof(UserDetail))
+            <section id="content" class="col-sm-9">@RenderBody()</section>
+            <footer id="mainFooter" class="col-sm-12">&copy; @DateTime.Now.Year -DIVINE CMS</footer>
+        </div>
+    </div>
+
+    @*<script src="~/js/bundlejs.min.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/assets/js/vendor/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    @RenderSection("Script", false)
+</body>
+</html>
+
+

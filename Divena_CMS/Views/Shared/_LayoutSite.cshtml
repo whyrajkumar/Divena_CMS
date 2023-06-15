@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>@(((string[])ViewData["Meta"])[0])</title>
+    <meta name="keywords" content="@(((string[])ViewData["Meta"])[1])" />
+    <meta name="description" content="@(((string[])ViewData["Meta"])[2])" />
+
+    <link rel="stylesheet" href="/Site/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/Site/dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="/Site/dist/css/style.css" />
+    <link rel="stylesheet" href="/Site/dist/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="/Site/dist/css/animate.css" />
+    <link rel="stylesheet" href="/Site/cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js">
+    <link href="/Site/fontawesome-free-5.12.1-web/css/all.css">
+    <link rel="stylesheet" href="/Site/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <link href="/Site/css/hover.css" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&amp;display=swap" rel="stylesheet">
+    <link rel="icon" src="favicon.ico" type="image/png" />
+
+    <link rel="stylesheet" href="/Site/dist/css/lightbox/ekko-lightbox.css" />
+</head>
+<body>
+    @*<div class="spinner-wrapper">
+            <div class="spinner"></div>
+        </div>*@
+
+    <div class="topnav">
+        <div class="container-fluid">
+            <div class="row12">
+                <div class="meta1"><p> <a href=""> <i class="fa fa-envelope"></i><i class="hide"> <small>bizdigitize@gmail.com </small></i> </a></p></div>
+                <div class="meta2"><p><a href="tel:"> <i class="fa fa-phone"></i><i class="hide"> <small>+ </small></i> </a></p></div>
+            </div>          
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="font-size: 16px !important;">
+
+
+        @await Component.InvokeAsync(nameof(SiteInfo))
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <style>
+
+                .navbar-expand-lg ul {
+                    flex-direction: row;
+                    margin-left: auto !important;
+                    display: flex;
+                    flex-direction: inherit;
+                    padding-left: 0;
+                    margin-bottom: 0;
+                    list-style: none;
+                }
+
+                    .navbar-expand-lg
+                    ul li {
+                        display: block;
+                        vertical-align: middle;
+                        -webkit-transform: perspective(1px) translateZ(0);
+                        transform: perspective(1px) translateZ(0);
+                        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                        .navbar-expand-lg
+                        ul li:before {
+                            content: "";
+                            position: absolute;
+                            z-index: -1;
+                            left: 51%;
+                            right: 51%;
+                            bottom: 0;
+                            background: #0067b8;
+                            font-size: 17px !important;
+                            height: 1px;
+                            -webkit-transition-property: left, right;
+                            transition-property: left, right;
+                            -webkit-transition-duration: 0.3s;
+                            transition-duration: 0.3s;
+                            -webkit-transition-timing-function: ease-out;
+                            transition-timing-function: ease-out;
+                        }
+
+                        .navbar-expand-lg ul li a {
+                            padding-right: 0.5rem;
+                            padding-left: 0.5rem;
+                            display: block;
+                            padding: 0.5rem 1rem;
+                            color: #007bff;
+                            text-decoration: none;
+                            background-color: transparent;
+                        }
+              
+
+                ul li:active > ul,
+                ul li:focus > ul,
+                ul li ul:hover,
+                ul li ul:focus {
+                    visibility: visible;
+                    opacity: 1;
+                    display: block
+                }
+
+            </style>
+
+
+            @await Component.InvokeAsync(nameof(SiteMenu))
+
+       
+        </div>
+    </nav>
+
+
+    @RenderBody()
+    <footer class="nb-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="about text-center">
+                        <p>Biz Digitize is supported by a dedicated group of  experienced individuals from E-commerce, Consulting & IT background with strong business operations, execution & strategy acumen.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="footer-info-single">
+                        <div class="footer-info-single" style="font-size: 14px !important">
+                            <h2 class="title">Biz Digitize</h2>
+                            <p>Biz Digitize is Amazon Authorised consultant and First service provider in Jaipur, Rajasthan which specializes in providing a complete ecosystem for achieving higher sales on Amazon, Flipkart, Meesho, Paytm  & other E-commerce platforms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-info-single">
+                        <h2 class="title">Quick Links</h2>
+                        @await Component.InvokeAsync(nameof(SiteFooter))
+                        @*  <ul class="list-unstyled" style="font-size: 14px !important">
+                                 <li><a href="about" title=""><i class="fa fa-angle-double-right"></i> About</a></li>
+                <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Services</a></li>
+                <li><a href="testimonial" title=""><i class="fa fa-angle-double-right"></i> Testimonials</a></li>
+                <li><a href="contact" title=""><i class="fa fa-angle-double-right"></i> Contact</a></li>
+                 <li><a href="career" title=""><i class="fa fa-angle-double-right"></i> Career</a></li>
+                                </ul>*@
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="footer-info-single">
+                        <h2 class="title">Quick Links</h2>
+                        @await Component.InvokeAsync(nameof(SiteSocial))
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-info-single">
+                        <h2 class="title">Conatact</h2>
+                        <ul class="list-unstyled" style="font-size: 14px !important">
+                            <li><a href="#" title=""><i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;+91-7877721227</a></li>
+                            <li><a href="#" title=""><i class="fas fa-envelope"></i>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+
+                            <li>
+                                <a href="#" title="">
+                                    <i class="far fa-clock"></i>&nbsp;&nbsp;&nbsp;
+                                    Monday - Saturday<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From: 9.30 AM Upto: 6.30 PM
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="">
+                                    <i class="fas fa-location-arrow"></i>&nbsp;&nbsp;&nbsp;Sanganer Circle<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sanganer, Jaipur,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rajasthan, 302029.
+                                </a>
+                            </li>
+                            <li>
+
+                            </li>
+                            <li>
+                                @*@await Component.InvokeAsync(nameof(SiteSocial))*@
+                                <ul class="navbar-nav ml-auto flex-row">
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://www.facebook.com/;fref=tag" target="_blank">
+                                            <i class="fab fa-facebook" style="margin-right: 10px !important; font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://www.instagram.com/" target="_blank">
+                                            <i class="fab fa-instagram" style="margin-right: 10px !important;font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://twitter.com/" target="_blank">
+                                            <i class="fab fa-twitter" style="margin-right: 10px !important;font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://www.linkedin.com/in/" target="_blank">
+                                            <i class="fab fa-linkedin" style="margin-right: 10px !important;font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://bizdigitize.tumblr.com/" target="_blank">
+                                            <i class="fab fa-tumblr-square" style="margin-right: 10px !important;font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link iconhover" href="https://in.pinterest.com/" target="_blank">
+                                            <i class="fab fa-pinterest" style="margin-right: 10px !important;font-size: 20px !important"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="copyright" style="font-size: 14px !important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+
+                        <p>Copyright &copy; 2020. <a href="index" style="text-decoration: none !important"><strong>Biz Digitize</strong></a>.</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><strong></strong></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p> Website Owned and Managed by :&nbsp;<a href="" style="text-decoration: none !important"><strong>Divine InfoTech</strong></a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- jQuery -->
+    <script src="/site/js/jquery/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <!-- Bootstrap -->
+    <script src="/site/dist/js/bootstrap.bundle.js"></script>
+    <script src="/site/dist/js/bootstrap.js"></script>
+    <script src="/site/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="/Site/fontawesome-free-5.12.1-web/js/all.js"></script>
+    <script src="/site/js/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/site/js/jquery-validation/additional-methods.js"></script>
+    <script src="/site/dist/js/wow.js"></script>
+    <script src="/site/dist/js/lightbox/ekko-lightbox.js"></script>
+    <script src="/site/dist/js/lightbox/ekko-lightbox.js.map"></script>
+    <script src="/site/dist/js/lightbox/ekko-lightbox.min.js"></script>
+    <script src="/site/dist/js/lightbox/ekko-lightbox.min.js.map"></script>
+    <!-- Main JS (Do not remove) -->
+    @*  <script src="/site/js/main.js"></script>*@
+    @RenderSection("scripts", false)
+</body>
+</html>

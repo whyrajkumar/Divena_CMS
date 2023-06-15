@@ -1,0 +1,28 @@
+﻿@model Page
+@*<tr class="row">
+    <td class="col-sm-1"><input type="checkbox" id="@Model.Id" /></td>
+    <td class="col-sm-5">@Model.Name<div>
+    <a asp-action="Add" asp-route-id="@Model.Id"><i class="fa fa-edit"></i></a>
+    <a target="_parent" asp-route-url="@Model.Url" asp-route="View-Page"><i class="fa fa-eye"></i></a>
+    <a asp-action="Delete" asp-route-id="@Model.Id"><i class="fa fa-close"></i></a>
+</div>
+    </td>
+    <td class="col-sm-3">
+        @{
+            string status = Model.Status == true ? "Active" : "InActive";
+            @status;
+        }
+    </td>
+    <td class="col-sm-3">@String.Format("{0:ddd, MMM d, yyyy}", Model.AddedOn)</td>
+</tr>*@
+
+
+<tr class="row">
+    <td class="col-sm-1"><input type="checkbox" id="@Model.Id" /></td>
+    <td class="col-sm-5">@Model.Name<div><a asp-action="Add" asp-route-id="@Model.Id">Edit</a><a target="_blank" asp-route-url="@Model.Url" asp-route="View-Page">View</a></div></td>
+    <td class="col-sm-3">
+        @{ string status = Model.Status == true ? "Active" : "InActive";
+            @status; }
+    </td>
+    <td class="col-sm-3">@String.Format("{0:ddd, MMM d, yyyy}", Model.AddedOn)</td>
+</tr>

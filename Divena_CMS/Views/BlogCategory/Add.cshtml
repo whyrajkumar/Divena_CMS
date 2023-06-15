@@ -1,0 +1,74 @@
+﻿@model BlogCategory
+@{
+    ViewBag.Title = ViewBag.Title;
+}
+
+<article>
+    <h1>@ViewBag.Title</h1>
+    <h2>@TempData["result"]</h2>
+
+    <form method="post">
+        @*<div class="control">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="text-box" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>*@
+
+        @*<div class="col-md-6">
+            <div class="form-tools-cover">
+                <div class="input-group">
+                    <input asp-for="Name" class="" aria-describedby="basic-addon1" required />
+                    <label asp-for="Name"></label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Url"></label>:-<label>@Context.Request.Scheme://@Context.Request.Host/MyBlogCategory/</label>
+            <input asp-for="Url" class="form-control" />
+            <span asp-validation-for="Url" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentId"></label>
+            <select class="form-control" asp-for="ParentId" asp-items="ViewBag.CategoryList">
+                <option selected value="0">Select</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MetaTitle"></label>
+            <input asp-for="MetaTitle" class="form-control" />
+            <span asp-validation-for="MetaTitle" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MetaKeyword"></label>
+            <input asp-for="MetaKeyword" class="form-control" />
+            <span asp-validation-for="MetaKeyword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MetaDescription"></label>
+            <input asp-for="MetaDescription" class="form-control" />
+            <span asp-validation-for="MetaDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Status"></label>
+            <select class="form-control" asp-for="Status">
+                <option value="true">Active</option>
+                <option value="false">InActive</option>
+            </select>
+        </div>
+        <div class="control">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</article>

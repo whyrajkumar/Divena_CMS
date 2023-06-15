@@ -1,0 +1,63 @@
+﻿@model Blog
+@{ ViewData["Meta"] = new string[3] { Model.MetaTitle, Model.MetaKeyword, Model.MetaDescription };
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+    var i = Model.MetaKeyword;
+    var keytags = i.Split(",");
+
+    <link href="~/TableofContents/toctoc.css" rel="stylesheet" />
+}
+
+
+<div class="container">
+   
+
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            
+            <div class="blog-text">
+                <span class="posted_on">@String.Format("{0:ddd, MMM d, yyyy}", Model.AddedOn)</span>
+                <h1>@Model.Name</h1>
+                <img class="img-responsive" src="@Model.PrimaryImageUrl" alt="@Model.Name">
+                <hr />
+                @*----------------TABLE OF CONTENTS-----------------------------------------------------------------------*@
+                <div id="toctoc"></div>
+                @*----------------TABLE OF CONTENTS-----------------------------------------------------------------------*@
+                <hr />
+
+                <div>
+                    @Html.Raw(Model.Description)
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <Strong>Categories</Strong>
+            @foreach (var p in (List<BlogCategory>)ViewBag.BlogCategory)
+            {
+                <ul>
+                    <li>
+                        <a>
+                            <Strong><a asp-controller="Home" asp-action="MyBlogCategory" asp-route-url="@p.Url">@p.Name</a></Strong>
+                        </a>
+                    </li>
+                </ul>
+            }
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/TableofContents/toctoc.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.toctoc({
+                minimized: false
+            });
+        });
+       
+    </script>
+
+}
+
+
